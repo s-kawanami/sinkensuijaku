@@ -1,8 +1,9 @@
-const tmpNum = 26;                               //ƒgƒ‰ƒ“ƒv‚Ìí—Ş
-const uraCnt = tmpNum * 2;                      //ƒgƒ‰ƒ“ƒv‚Ì”
-let ura = new Array(uraCnt);                    //ƒgƒ‰ƒ“ƒv‚Ì— –Ê‚Ì”z—ñ
-let omote = new Array(uraCnt);                  //ƒgƒ‰ƒ“ƒv‚Ì•\–Ê‚Ì”z—ñ
-const omoteImg = [                              //  ƒgƒ‰ƒ“ƒv‚Ì‰æ‘œ‚Ì”z—ñ
+@charset "utf-8";
+const tmpNum = 26;                               //ãƒˆãƒ©ãƒ³ãƒ—ã®ç¨®é¡
+const uraCnt = tmpNum * 2;                      //ãƒˆãƒ©ãƒ³ãƒ—ã®æ•°
+let ura = new Array(uraCnt);                    //ãƒˆãƒ©ãƒ³ãƒ—ã®è£é¢ã®é…åˆ—
+let omote = new Array(uraCnt);                  //ãƒˆãƒ©ãƒ³ãƒ—ã®è¡¨é¢ã®é…åˆ—
+const omoteImg = [                              //  ãƒˆãƒ©ãƒ³ãƒ—ã®ç”»åƒã®é…åˆ—
     "images/torannpu-illust1.png",
     "images/torannpu-illust2.png",
     "images/torannpu-illust3.png",
@@ -30,19 +31,19 @@ const omoteImg = [                              //  ƒgƒ‰ƒ“ƒv‚Ì‰æ‘œ‚Ì”z—ñ
     "images/torannpu-illust38.png",
     "images/torannpu-illust39.png",
 ];
-const uraParent = document.getElementById("ura");  //— –Ê‚Ì‰æ‘œ‚ğ“ü‚ê‚é‚Æ‚±‚ë
-const omoteParent = document.querySelector(".omote");  //•\–Ê‚Ìe—v‘f
-const uraImg = "images/uramen.png";             //— –Ê‚Ì‰æ‘œƒCƒ‰ƒXƒg
-let k = 0;                                      //•\–Ê‚Ì‰æ‘œ‚Ì“Y‚¦š
-let flg = 0;                                    //‚ß‚­‚Á‚½‰æ‘œ‚ªˆê–‡–Ú‚È‚Ì‚©“ñ–‡–Ú‚È‚Ì‚©
-let set, mae, current;                          //i‚ğ‰^‚ÔA‘O‚Ì‘Oˆø‚¢‚½‰æ‘œ‚Ì“Y‚¦šA‘O‚Ì‰æ‘œ‚Ì“Y‚¦š
+const uraParent = document.getElementById("ura");  //è£é¢ã®ç”»åƒã‚’å…¥ã‚Œã‚‹ã¨ã“ã‚
+const omoteParent = document.querySelector(".omote");  //è¡¨é¢ã®è¦ªè¦ç´ 
+const uraImg = "images/uramen.png";             //è£é¢ã®ç”»åƒã‚¤ãƒ©ã‚¹ãƒˆ
+let k = 0;                                      //è¡¨é¢ã®ç”»åƒã®æ·»ãˆå­—
+let flg = 0;                                    //ã‚ãã£ãŸç”»åƒãŒä¸€æšç›®ãªã®ã‹äºŒæšç›®ãªã®ã‹
+let set, mae, current;                          //iã‚’é‹ã¶ã€å‰ã®å‰å¼•ã„ãŸç”»åƒã®æ·»ãˆå­—ã€å‰ã®ç”»åƒã®æ·»ãˆå­—
 let flg2 = 0;
 const button = document.getElementById("button");
 const label = document.getElementById("label");
 let cnt = 0;
 let pare = tmpNum;
 
-//@— –Ê”z’u&‘®«•t‚¯
+//ã€€è£é¢é…ç½®&å±æ€§ä»˜ã‘
 function UraCreate(uraImage) {
     for (let i = 0; i < uraCnt; i++) {
         ura[i] = document.createElement("img");
@@ -52,7 +53,7 @@ function UraCreate(uraImage) {
         ura[i] = uraParent.appendChild(ura[i]);      
     }
 }
-//•\–Ê”z’u&‘®«•t‚¯
+//è¡¨é¢é…ç½®&å±æ€§ä»˜ã‘
 function OmoteCreate1(omoteImage) {
     omoteImage.forEach((item, index) => {  
         omote[k] = document.createElement("img");
@@ -64,13 +65,13 @@ function OmoteCreate1(omoteImage) {
         k++;
     });
 }
-//•\–Ê‘S‘Ì”z’u
+//è¡¨é¢å…¨ä½“é…ç½®
 function OmoteCreate(omoteImg) {
     OmoteCreate1(omoteImg);
     OmoteCreate1(omoteImg);
 }
 
-//•\–ÊƒVƒƒƒbƒtƒ‹
+//è¡¨é¢ã‚·ãƒ£ãƒƒãƒ•ãƒ«
 function ShuffleOmote() {
     omote.forEach((item,index) => {
         let random = Math.floor(Math.random() * uraCnt);
@@ -88,7 +89,7 @@ function ShuffleOmote() {
     AddMargin();
     NotMargin();
 }
-//ˆê”Ô‰E‚Ì—]”’‚ğÁ‚·
+//ä¸€ç•ªå³ã®ä½™ç™½ã‚’æ¶ˆã™
 function NotMargin() {
     for (let i = 0; i < uraCnt; i++) {
 
@@ -97,7 +98,7 @@ function NotMargin() {
         }
     }
 }
-//‘S‚Ä‚ÌƒJ[ƒh‚Ì‰E‚É—]”’‚ğ‚Â‚¯‚È‚¨‚·
+//å…¨ã¦ã®ã‚«ãƒ¼ãƒ‰ã®å³ã«ä½™ç™½ã‚’ã¤ã‘ãªãŠã™
 function AddMargin() {
     for (let i = 0; i < uraCnt; i++) {
             omote[i].style.marginRight = "10px";
@@ -117,7 +118,7 @@ let omoteIndex2;
 let uraIndex2;
 let uraIndex;
 
-//ƒgƒ‰ƒ“ƒv‚ª‰Ÿ‚³‚ê‚½‚Ìˆ—
+//ãƒˆãƒ©ãƒ³ãƒ—ãŒæŠ¼ã•ã‚ŒãŸæ™‚ã®å‡¦ç†
 function Open_rtn(num) {
     if (flgc >= 2) {
         return;
@@ -149,7 +150,7 @@ function ForwardOmote(num) {
     }
 }
 
-//‘å–{
+//å¤§æœ¬
 function Hantei_rtn(index, index2, index3, index4) {
     let t = setTimeout(() => {
         ClearCard(index, index2)
@@ -161,7 +162,7 @@ function Hantei_rtn(index, index2, index3, index4) {
     }
 }
 
-//”»’è
+//åˆ¤å®š
 function IsExist(index,index2) {
     if (omote[index].className !== omote[index2].className) {
         return 0;
@@ -172,27 +173,27 @@ function IsExist(index,index2) {
     }
 }
 function ShowMaisu() {
-    label.innerText = "c‚è" + pare + "‘g";
+    label.innerText = "æ®‹ã‚Š" + pare + "çµ„";
 }
-//•\‚ÌƒJ[ƒhˆê–‡‚ğ•\¦‚·‚é
+//è¡¨ã®ã‚«ãƒ¼ãƒ‰ä¸€æšã‚’è¡¨ç¤ºã™ã‚‹
 function ShowOmote(index) {
     omote[index].style.visibility = "visible";
 }
 
-//•\‚ÌƒJ[ƒh“ñ–‡‚ğÁ‚·
+//è¡¨ã®ã‚«ãƒ¼ãƒ‰äºŒæšã‚’æ¶ˆã™
 function ClearCard(index,index2) {
     omote[index].style.visibility = "hidden";
     omote[index2].style.visibility = "hidden";
     flgc=0;
 }
 
-//— ‚Ì‚©[‚Ç“ñ–‡‚ğ•\¦‚·‚é
+//è£ã®ã‹ãƒ¼ã©äºŒæšã‚’è¡¨ç¤ºã™ã‚‹
 function ShowUra(index, index2) {
     ura[index].style.visibility = "visible";
     ura[index2].style.visibility = "visible";
 }
 
-//— ‚ÌƒJ[ƒhˆê–‡‚ğÁ‚·
+//è£ã®ã‚«ãƒ¼ãƒ‰ä¸€æšã‚’æ¶ˆã™
 function ClearUra(index) {
     ura[index].style.visibility = "hidden";
 }
@@ -200,7 +201,7 @@ function ClearUra(index) {
 
 
 
-//‚·‚×‚Ä— –Ê‚É‚·‚é
+//ã™ã¹ã¦è£é¢ã«ã™ã‚‹
 function Reverce() {
     cnt = 0;
     for (let i = 0; i < uraCnt; i++) {
@@ -211,11 +212,11 @@ function Reverce() {
 button.addEventListener('click', () => {
     ShuffleOmote();
     pare = tmpNum;
-    label.innerText = "c‚è" + pare + "‘g";
+    label.innerText = "æ®‹ã‚Š" + pare + "çµ„";
 })
 
 window.addEventListener('load', () => {
-    label.innerText = "c‚è" + tmpNum + "‘g";
+    label.innerText = "æ®‹ã‚Š" + tmpNum + "çµ„";
 })
 
 function HanteiText() {
